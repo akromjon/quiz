@@ -207,7 +207,6 @@ Route::middleware('admin')->group(function () {
         Route::get('', 'index')->name('index');
         Route::post('store/{id?}', 'store')->name('store');
         Route::post('status/{id}', 'changeStatus')->name('status');
-        Route::get('delete/{id?}', 'delete')->name('delete');
     });
 
     // subcategory
@@ -221,7 +220,6 @@ Route::middleware('admin')->group(function () {
     Route::controller('LevelController')->prefix('level')->name('level.')->group(function () {
         Route::get('', 'index')->name('index');
         Route::post('store/{id?}', 'store')->name('store');
-        Route::get('delete/{id}','delete')->name('delete');
     });
 
     // daily quiz
@@ -245,8 +243,6 @@ Route::middleware('admin')->group(function () {
         Route::get('list/{id}', 'questionList')->name('list');
         Route::post('status/{id}', 'changeStatus')->name('status');
         Route::get('question/import/{id}', 'questionImport')->name('question.import');
-        Route::get('delete/{id}', 'delete')->name('delete');
-
     });
 
     // contest

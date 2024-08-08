@@ -26,13 +26,11 @@
                                         <td>{{ $quizInfo->winning_mark }}%</td>
                                         <td>@php echo $quizInfo->statusBadge; @endphp</td>
                                         <td>
-                                            <a class="btn btn-danger" href="{{route('admin.general.delete',$quizInfo->id)}}" onclick="return confirm('Are you sure you want to delete this?');">Delete</a>
-
                                             <button class="btn btn-sm btn-outline--primary editBtn"
                                                 data-title="@lang('Edit General Quiz')"
-                                                data-category="{{ $quizInfo?->category?->id }}"
-                                                data-subcategory = "{{ @$quizInfo?->sub_category_id }}"
-                                                data-level="{{ @$quizInfo?->level?->id }}"
+                                                data-category="{{ $quizInfo->category->id }}"
+                                                data-subcategory = "{{ @$quizInfo->sub_category_id }}"
+                                                data-level="{{ @$quizInfo->level->id }}"
                                                 data-general_quiz_id="{{ $quizInfo->id }}"
                                                 data-winning_mark="{{ $quizInfo->winning_mark }}">
                                                 <i class="la la-pencil"></i> @lang('Edit')

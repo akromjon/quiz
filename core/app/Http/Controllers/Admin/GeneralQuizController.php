@@ -25,7 +25,7 @@ class GeneralQuizController extends Controller
             ->paginate(getPaginate());
 
         $levels = Level::all();
-        $categories = Category::active()->with(['subcategories' => function ($subcategories) {
+        $categories = Category::active()->with(['subcategories' => function($subcategories){
             $subcategories->active();
         }])->get();
         return view('admin.question.general', compact('pageTitle', 'quizInfos', 'categories', 'levels', 'type'));
@@ -48,7 +48,7 @@ class GeneralQuizController extends Controller
         if ($request->general_quiz_id) {
             $quizInfo = QuizInfo::findOrFail($request->general_quiz_id);
 
-            if (@$requestQuizInfo && (@$requestQuizInfo->id != $quizInfo->id)) {
+            if(@$requestQuizInfo && (@$requestQuizInfo->id != $quizInfo->id)){
                 $notify[] = ['success', 'You have already add this general quiz.'];
                 return back()->withNotify($notify);
             }
@@ -120,14 +120,5 @@ class GeneralQuizController extends Controller
     public function changeStatus($id)
     {
         return QuizInfo::changeStatus($id);
-    }
-
-    public function delete(string $id)
-    {
-        $quiz = QuizInfo::findOrFail($id);
-
-        $quiz->delete();
-
-        return redirect()->back();
     }
 }

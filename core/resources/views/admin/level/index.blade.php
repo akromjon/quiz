@@ -23,8 +23,6 @@
                                         <td><span class="fw-bold">{{ __($level->title) }}</span></td>
                                         <td>{{ $level->level }}</td>
                                         <td>
-                                            <a class="btn btn-danger" href="{{route('admin.level.delete',$level->id)}}" onclick="return confirm('Are you sure you want to delete this?');">Delete</a>
-
                                             <button type="button" class="btn btn-sm btn-outline--primary editBtn"
                                             data-title="Edit Level"
                                             data-level="{{ $level->level }}"

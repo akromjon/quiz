@@ -28,7 +28,6 @@
                                             @php
                                                 $category->image_with_path = getImage(getFilePath('category') . '/' . @$category->image);
                                             @endphp
-                                            <a class="btn btn-danger" href="{{route('admin.category.delete',$category->id)}}" onclick="return confirm('Are you sure you want to delete this?');">Delete</a>
 
                                            <button type="button" class="btn btn-sm btn-outline--primary cuModalBtn" data-resource="{{ $category }}" data-modal_title="@lang('Edit Category')" data-has_status="1">
                                                <i class="la la-pencil"></i>@lang('Edit')

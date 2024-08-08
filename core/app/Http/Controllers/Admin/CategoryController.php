@@ -16,20 +16,4 @@ class CategoryController extends Controller
     protected $relation = null;
 
     use Crud;
-
-
-    public function delete(string $id){
-
-        $category=$this->model::findOrFail($id);
-
-        $subCategories=$category->subcategories;
-
-        foreach($subCategories as $s){
-            $s->delete();
-        }
-
-        $category->delete();
-
-        return redirect()->back();
-    }
 }

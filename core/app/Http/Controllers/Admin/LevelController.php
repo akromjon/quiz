@@ -24,13 +24,4 @@ class LevelController extends Controller
         $this->hasImage = false;
         $this->id = request()->id;
     }
-
-    public function delete(string $id){
-
-        $level=$this->model::findOrFail($id);
-
-        $level->delete();
-
-        return redirect()->back();
-    }
 }
