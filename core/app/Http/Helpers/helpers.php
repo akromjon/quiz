@@ -465,7 +465,7 @@ function levelStatus($data)
         } elseif ($prev && $prev->is_win == 1) {
             $quizInfo->level_status = 'unlock';
         } else {
-            $quizInfo->level_status = 'lock';
+            $quizInfo->level_status = 'unlock';
         }
         $prev = $quizInfo->playInfo;
     }

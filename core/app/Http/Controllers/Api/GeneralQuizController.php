@@ -111,9 +111,7 @@ class GeneralQuizController extends Controller
             ->whereHas('level', function ($q) use ($quizInfo) {
                 $q->where('level', $quizInfo->level->level - 1);
             })
-            ->whereHas('playInfo', function ($q) {
-                $q->where('user_id', auth()->id());
-            })->first();
+            ->first();
 
         if (!$quizInfoPrev && $quizInfo->level->level != 1) {
             $notify[] = 'Complete previous level first';
